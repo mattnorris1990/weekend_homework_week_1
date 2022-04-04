@@ -14,6 +14,10 @@ def add_or_remove_cash(pet_shop, amount):
     revised_cash = current_cash + amount
     pet_shop["admin"]["total_cash"] = revised_cash
 
+# suggested homework solution
+# def add_or_remove_cash(pet_shop, amount):
+#     pet_shop["admin"]["total_cash"] += amount
+
 # test at line 99
 def get_pets_sold(pet_shop):
     return pet_shop["admin"]["pets_sold"]
@@ -23,6 +27,9 @@ def increase_pets_sold(pet_shop, amount):
     current_pets_sold = pet_shop["admin"]["pets_sold"]
     revised_pets_sold = current_pets_sold + amount
     pet_shop["admin"]["pets_sold"] = revised_pets_sold
+
+# suggested homework solution
+# pet_shop["admin"]["pets_sold"] += num_pets_sold
 
 # test at line 110
 def get_stock_count(pet_shop):
@@ -71,6 +78,10 @@ def add_pet_to_stock(pet_shop, new_pet):
 
     pets.append(new_pet)
 
+# suggested homework solution
+# def add_pet_to_stock(pet_shop, pet):
+#     pet_shop["pets"].append(pet)
+
 # test at 147
 def get_customer_cash(customer):
     customer_cash = 0 + customer["cash"]
@@ -81,6 +92,10 @@ def remove_customer_cash(customer, amount):
     current_cash = customer["cash"]
     revised_cash = current_cash - amount
     customer["cash"] = revised_cash
+
+#  suggested homework response
+# def remove_customer_cash(customer, amount):
+#     customer["cash"] -= amount
 
 # test at 158 
 def get_customer_pet_count(customers):
@@ -102,6 +117,10 @@ def customer_can_afford_pet(customer, pet):
         can_buy = False
     return can_buy
 
+# suggested homework solution
+# def customer_can_afford_pet(customer, pet):
+#     return customer["cash"] >= pet["price"]
+
 def sell_pet_to_customer(pet_shop, pet, customer):
     
     for pets in pet_shop["pets"]:
@@ -109,11 +128,21 @@ def sell_pet_to_customer(pet_shop, pet, customer):
 
             pet_cost = pet["price"]
             if customer_can_afford_pet(customer, pet) == True:
-            
+                # this next line is not tested before but is in the suggested homework solution 
+                # remove_pet_by_name(pet_shop, pet["name"])
                 add_pet_to_customer(customer, pet)
                 increase_pets_sold(pet_shop, 1)
                 remove_customer_cash(customer, pet_cost)
                 add_or_remove_cash(pet_shop, pet_cost)
+
+# suggested homework solution
+# def sell_pet_to_customer(pet_shop, pet, customer):
+#     if pet != None and customer_can_afford_pet(customer, pet):
+#         remove_pet_by_name(pet_shop, pet["name"])
+#         add_pet_to_customer(customer, pet)
+#         remove_customer_cash(customer, pet["price"])
+#         add_or_remove_cash(pet_shop, pet["price"])
+#         increase_pets_sold(pet_shop, 1)
 
 
 
