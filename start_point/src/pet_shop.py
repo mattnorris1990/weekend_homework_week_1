@@ -128,7 +128,7 @@ def sell_pet_to_customer(pet_shop, pet, customer):
 
             pet_cost = pet["price"]
             if customer_can_afford_pet(customer, pet) == True:
-                # this next line is not tested before but is in the suggested homework solution 
+                # this next line is not tested for but is in the suggested homework solution 
                 # remove_pet_by_name(pet_shop, pet["name"])
                 add_pet_to_customer(customer, pet)
                 increase_pets_sold(pet_shop, 1)
